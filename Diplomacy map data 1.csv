@@ -1,0 +1,21 @@
+﻿Territory Name,"Territory Type (Land, Sea, or Coast)",Dot (True => has dot),Adjacent Territories
+Nwg,Sea,FALSE,Nap Cly Edi Nth Nwy Bar
+Nap,Sea,FALSE,Iri Lvp Cly Nwg
+Cly,Coast,FALSE,Nap Nwg Lvp Edi
+Edi,Coast,TRUE,Cly Lvp Nth Nwg Yor
+Lvp,Coast,TRUE,Nap Cly Edi Yor Wal Iri
+Yor,Coast,FALSE,Edi Lon Lvp Nth Wal 
+Wal,Coast,FALSE,Eng Iri Lon Lvp Yor
+Lon,Coast,TRUE,Eng Nth Wal Yor
+Nth,Sea,FALSE,Nwg Edi Yor Lon Eng Bel Hol Hel Den Skg Nwy
+Bar,Sea,FALSE,Nwg Nwy Stp
+Nwy,Coast,FALSE,Bar Fin Nth Nwg Skg Stp Swe
+Skg,Sea,FALSE,Den Nth Nwy Swe
+Iri,Sea,FALSE,Eng Mao Nap Lvp Wal 
+Eng,Sea,FALSE,Bel Bre Iri Lon Mao Nth Pic Wal
+Stp,Coast,TRUE,Bar Bot Fin Lvn Mos Nwy
+Fin,Coast,FALSE,Bot Nwy Stp Swe
+Bot,Sea,FALSE,Bal Fin Lvn Stp Swe
+Swe,Coast,TRUE,Bal Bot Den Fin Nwy Skg
+Den,Coast,TRUE,Bal Hel Kie Nth Skg Swe
+Bal,Sea,FALSE,Ber Bot Den Kie Lvn Pru Swe
