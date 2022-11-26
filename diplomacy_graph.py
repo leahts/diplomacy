@@ -17,12 +17,12 @@ class Node():
         self.neighbors = neighbors
     
     def printing(self):
-        print("The country {} has neighbors {} and a dot status of {}".format(self.name, self.neighbors, self.dot_status))
+        print("The territory {} has neighbors {} and a dot status of {}".format(self.name, self.neighbors, self.dot_status))
         
        #Main Body
             
 #initialize
-graph_file = open("Diplomacy map data 1.csv", "r")
+graph_file = open("map_data.csv", "r")
 graph_file = graph_file.readlines()[1:]
 
 #parsing data and calling node function 
