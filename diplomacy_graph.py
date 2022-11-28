@@ -33,7 +33,7 @@ for line in graph_file:
     line = line.replace("\n", "")
     line = line.split(",")
     line[-1] = line[-1].split(" ")
-    node = Node(line[0], line[1], line[2], line[3])
+    node = Node(line[0], line[2], line[3], line[4])
     print_statement = node.printing()
 
 #visualize the graph
