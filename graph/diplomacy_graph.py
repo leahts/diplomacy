@@ -28,7 +28,7 @@ class Node():
 # Main Body
 
 # open the graph file and parse data
-graph_file = open("data\map_data.csv", "r")
+graph_file = open("data/map_data.csv", "r")
 graph_file = graph_file.readlines()[1:]
 for line in graph_file:
     line = line.replace("\n", "")
