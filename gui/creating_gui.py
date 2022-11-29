@@ -5,13 +5,12 @@ import PySimpleGUI as sg
 from PIL import Image
 
 
-
-image_file = "data/diplomacy_map_image.jpg"
+image_file = "data/map.png"
 
 map_layout = [
-        [sg.Image(filename = image_file)], 
-        [sg.Text("Imperial Diplomacy")]
-    ]
+    [sg.Image(image_file)],
+    [sg.Text("Imperial Diplomacy")]
+]
 window = sg.Window("Imperial Diplomacy: Spring 1900", map_layout)
 while True:
     event, values = window.Read()
