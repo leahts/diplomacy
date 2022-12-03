@@ -13,6 +13,22 @@ sys.path.append("graph")
 import open_file
 
 
+def create_dot(coord_info_list, image_file):
+    image = Image.open(image_file)
+    for coord_info in coord_info_list:
+        pos = coord_info[1]
+        pos = pos.split(" ")
+        x_pos = pos[0]
+        y_pos = pos[1]
+        x_pos = int(x_pos)
+        y_pos = int(y_pos)
+        territory = coord_info[0]
+        color_of_dot = image.getpixel((x_pos, y_pos))
+        ellipse_dimensions = [(x_pos - 5, y_pos - 5), (x_pos + 5, y_pos + 5)]
+        draw = ImageDraw.Draw(image, "RGBA")
+        draw.ellipse(ellipse_dimensions, outline = (0, 0, 0, 255), fill = color_of_dot)
+    return image
+
 #Display image function: inputs a .png file and outputs the image
 def display_image(file, coordinate_info):
     map_layout = [
@@ -20,12 +36,6 @@ def display_image(file, coordinate_info):
         [sg.Text("Imperial Diplomacy")]
     ]
     window = sg.Window("Imperial Diplomacy: Spring 1900", map_layout)
-    """
-    for coord_info in coordinate_info:
-        shape = ImageDraw.Draw.rectangle(coord_info[1][0], coord_info[1][1])
-        window["graph"].draw_image()
-        window.update()
-    """
     while True:
         event, values = window.Read()
         if event == sg.WIN_CLOSED:
@@ -54,26 +64,33 @@ def click_event(event, x, y, flags, params):
     
 #Main Body
 
-#Retrieve map names and coordinates
+#Initialize
 map_raw = open("data/map_data.csv", "r")
+image_file = "data/kamrans_map.png"
+territory_and_coord = []
+
+#Read map_data and add dots to map
 map_raw = map_raw.readlines()[1:]
 map_data = open_file.open_file(map_raw)
-territory_coordinates = []
 for line in map_data:
     line = line.split(",")
     name_coord = (line[0], line[-2])
-    territory_coordinates.append(name_coord)
-print(territory_coordinates)
+    territory_and_coord.append(name_coord)
+
+#Create map with dots
+map_w_dots = create_dot(territory_and_coord, image_file)
+map_w_dots.save("data/map_w_dots.png", format = "png")
+map_w_dots = "data/map_w_dots.png"
 
 #Display Map - thank you Kamran for the map
-image_file = "data/kamrans_map.png"
-display_image(image_file, territory_coordinates)
-img = cv2.imread(image_file, 1)
+display_image(map_w_dots, territory_and_coord)
 
 #Get coordinates; from https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
+img = cv2.imread(image_file, 1)
 """
 cv2.imshow('image', img)
 cv2.setMouseCallback('image', click_event)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 """
+
