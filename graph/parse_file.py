@@ -1,4 +1,4 @@
-#takes a .csv file and parses the data
+#Takes a .csv file and parses the data (customized for map_data.csv)
 def parse_file(file):
     for line in file:
         line = line.replace("\n", "")

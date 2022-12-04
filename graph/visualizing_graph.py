@@ -1,4 +1,4 @@
-#imports 
+#Imports 
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -24,7 +24,7 @@ class GraphVisualization:
     def get_nodes_and_edges(self):
         return self.visual
 
-
+#Create and display the graph
 def create_graph(graph_file):
     node_graph = nx.Graph()
     i = 0

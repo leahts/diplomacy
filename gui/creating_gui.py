@@ -1,3 +1,4 @@
+#Imports
 import os
 import PySimpleGUI as sg
 from PIL import Image

@@ -12,14 +12,15 @@ from creating_gui import map_w_dots_png #saves map (that has the dots on it) as 
 sys.path.append("graph")
 import parse_file
 
-#Initialize data and read the map_data.csv file
+#Initialize data and read map_data.csv
 map_raw = open("data/map_data.csv", "r")
 map_raw = map_raw.readlines()[1:]
 image_file = "data/kamrans_map.png"
 
-#Call Functions
+#Call functions
 map_data = parse_file.parse_file(map_raw)
 territory_and_coord = get_territory_and_coord(map_data)
 map_w_dots = map_w_dots_png(territory_and_coord, image_file)
 display_image(map_w_dots, territory_and_coord)
 #run_click_event(image_file)
+
