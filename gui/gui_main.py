@@ -1,12 +1,12 @@
 #Imports
 import cv2
 import sys
-from creating_gui import get_territory_and_coord
-from creating_gui import create_dot
-from creating_gui import display_image
-from creating_gui import click_event
-from creating_gui import run_click_event
-from creating_gui import map_w_dots_png
+from creating_gui import get_territory_and_coord #takes map_data.csv and returns (territory, coordinates)
+from creating_gui import create_dot #create dot for each territory on map
+from creating_gui import display_image #gui to display image
+from creating_gui import click_event #image in which a mouse click gives the location of the mouse
+from creating_gui import run_click_event #runs click_event function
+from creating_gui import map_w_dots_png #saves map (that has the dots on it) as a png and returns that map
 
 #Fancy import from another directory (not sure if I'm using "directory" correctly)
 sys.path.append("graph")

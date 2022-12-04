@@ -4,7 +4,6 @@ from PIL import Image
 from PIL import ImageDraw
 import cv2
 
-
 #Takes in the map_data.csv and returns territory and coordinates in a tuple
 def get_territory_and_coord(data):
     territory_and_coord_list = []
@@ -45,12 +44,13 @@ def display_image(file, coordinate_info):
         """if os.path.exists(file):
                 image = Image.open(file)
                 print("yes")
-                image.resize((200, 200))
+                image.resize((600, 400))
                 window[file].update()"""
         window.close()
 
 #From https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
 #Thank you geeksforgeeks
+#Creates an image that, when the mouse clicks on the image, outputs the coordinates of the click
 def click_event(event, x, y, flags, params):
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
