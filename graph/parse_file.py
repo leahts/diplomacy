@@ -1,4 +1,5 @@
-def open_file(file):
+#takes a .csv file and parses the data
+def parse_file(file):
     for line in file:
         line = line.replace("\n", "")
         line = line.split(",")

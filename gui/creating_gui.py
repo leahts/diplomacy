@@ -1,18 +1,20 @@
-# image_viewer.py
-import io
 import os
 import PySimpleGUI as sg
 from PIL import Image
 from PIL import ImageDraw
-from PIL import ImageFont
 import cv2
-import sys
-
-#do fancy import from another directory (not sure if I'm using "directory" correctly)
-sys.path.append("graph")
-import open_file
 
 
+#Takes in the map_data.csv and returns territory and coordinates in a tuple
+def get_territory_and_coord(data):
+    territory_and_coord_list = []
+    for line in data:
+        line = line.split(",")
+        name_coord = (line[0], line[-2])
+        territory_and_coord_list.append(name_coord)
+    return territory_and_coord_list
+
+#Add dot to map
 def create_dot(coord_info_list, image_file):
     image = Image.open(image_file)
     for coord_info in coord_info_list:
@@ -46,51 +48,32 @@ def display_image(file, coordinate_info):
                 image.resize((200, 200))
                 window[file].update()"""
         window.close()
-  
+
 #From https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
 #Thank you geeksforgeeks
 def click_event(event, x, y, flags, params):
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
-        # displaying the coordinates on the Shell
         print(x, ' ', y)
-        # displaying the coordinates on the image window
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img, str(x) + ',' +
                     str(y), (x,y), font,
                     1, (255, 0, 0), 2)
         cv2.imshow('image', img)
- 
-    
-#Main Body
-
-#Initialize
-map_raw = open("data/map_data.csv", "r")
-image_file = "data/kamrans_map.png"
-territory_and_coord = []
-
-#Read map_data and add dots to map
-map_raw = map_raw.readlines()[1:]
-map_data = open_file.open_file(map_raw)
-for line in map_data:
-    line = line.split(",")
-    name_coord = (line[0], line[-2])
-    territory_and_coord.append(name_coord)
-
-#Create map with dots
-map_w_dots = create_dot(territory_and_coord, image_file)
-map_w_dots.save("data/map_w_dots.png", format = "png")
-map_w_dots = "data/map_w_dots.png"
-
-#Display Map - thank you Kamran for the map
-display_image(map_w_dots, territory_and_coord)
 
 #Get coordinates; from https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
-img = cv2.imread(image_file, 1)
-"""
-cv2.imshow('image', img)
-cv2.setMouseCallback('image', click_event)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-"""
+def run_click_event(image):
+    cv2.imshow('image', img)
+    cv2.setMouseCallback('image', click_event)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
+#Save image as a png and return the png image
+def map_w_dots_png(data_info, file):
+    new_map = create_dot(data_info, file)
+    new_map.save("data/map_w_dots.png", format = "png")
+    new_map = "data/map_w_dots.png"
+    return new_map
+
+image_file = "data/kamrans_map.png"
+img = cv2.imread(image_file, 1)
