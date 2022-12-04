@@ -62,6 +62,7 @@ def click_event(event, x, y, flags, params):
         cv2.imshow('image', img)
 
 #Get coordinates; from https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
+#Allows user to click on location and get location in terms of (x, y) coordinates
 def run_click_event(image):
     cv2.imshow('image', img)
     cv2.setMouseCallback('image', click_event)
