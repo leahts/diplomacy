@@ -25,8 +25,6 @@ class GraphVisualization:
         return self.visual
 
 
-
-
 def create_graph(graph_file):
     node_graph = nx.Graph()
     i = 0
