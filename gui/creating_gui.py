@@ -84,9 +84,9 @@ def create_arrow(image_file, p1, p2):
     slope = (y2 - y1)/(x2 - x1)
     inverse_slope = (-1)/slope
     if x2 > x1:
-        x3 = x2 - 10
+        x3 = x2 - 7
     else:
-        x3 = x2 + 10
+        x3 = x2 + 7
     y3 = slope*(x3 - x1) + y1
     arrow_point1 = (x3 - 5, inverse_slope*(-5) + y3)
     arrow_point2 = (x3 + 5, inverse_slope*(5) + y3)

@@ -16,14 +16,14 @@ import parse_file
 map_raw = open("data/map_data.csv", "r")
 map_raw = map_raw.readlines()[1:]
 image_file = "data/kamrans_map.png"
-point1 = (235, 100)
-point2 = (300, 150)
+nwg = (235, 50)
+nao = (65, 100)
 
 #Call functions
 map_data = parse_file.parse_file(map_raw)
 territory_and_coord = get_territory_and_coord(map_data)
 map_w_dots = create_dot(territory_and_coord, image_file)
-map_w_arrow = create_arrow(map_w_dots, point1, point2)
+map_w_arrow = create_arrow(map_w_dots, nwg, nao)
 display_image(map_w_arrow, territory_and_coord)
 #run_click_event(image_file)
 
