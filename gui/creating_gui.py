@@ -14,7 +14,7 @@ def get_territory_and_coord(data):
         territory_and_coord_list.append(name_coord)
     return territory_and_coord_list
 
-#Add dot to map
+#Add dot to map; takes in the territories and coordinates and outputs the image file as a png
 def create_dot(coord_info_list, image_file):
     image = Image.open(image_file)
     for coord_info in coord_info_list:
@@ -29,7 +29,9 @@ def create_dot(coord_info_list, image_file):
         ellipse_dimensions = [(x_pos - 5, y_pos - 5), (x_pos + 5, y_pos + 5)]
         draw = ImageDraw.Draw(image, "RGBA")
         draw.ellipse(ellipse_dimensions, outline = (0, 0, 0, 255), fill = color_of_dot)
-    return image
+    image.save("data/map_w_dots.png", format = "png")
+    updated_map = "data/map_w_dots.png"
+    return updated_map
 
 #Display image function: inputs a .png file and outputs the image
 def display_image(file, coordinate_info):
@@ -70,12 +72,33 @@ def run_click_event(image):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-#Save image as a png and return the png image
-def map_w_dots_png(data_info, file):
-    new_map = create_dot(data_info, file)
-    new_map.save("data/map_w_dots.png", format = "png")
-    new_map = "data/map_w_dots.png"
-    return new_map
+#Creates an arrow between two points and returns the map with the arrow as a png file
+def create_arrow(image_file, p1, p2):
+    black = (0, 0, 0)
+    x1 = int(p1[0])
+    y1 = int(p1[1])
+    x2 = int(p2[0])
+    y2 = int(p2[1])
+    p1 = (x1, y1)
+    p2 = (x2, y2)
+    slope = (y2 - y1)/(x2 - x1)
+    inverse_slope = (-1)/slope
+    if x2 > x1:
+        x3 = x2 - 10
+    else:
+        x3 = x2 + 10
+    y3 = slope*(x3 - x1) + y1
+    arrow_point1 = (x3 - 5, inverse_slope*(-5) + y3)
+    arrow_point2 = (x3 + 5, inverse_slope*(5) + y3)
+    image = Image.open(image_file)
+    draw = ImageDraw.Draw(image)
+    draw.line([p1, p2], fill = black, width = 2)
+    draw.line([arrow_point1, p2], fill = black, width = 2)
+    draw.line([arrow_point2, p2], fill = black, width = 2)
+    image.save("data/map_w_arrow.png", format = "png")
+    updated_map = "data/map_w_arrow.png"
+    return updated_map
+
 
 image_file = "data/kamrans_map.png"
 img = cv2.imread(image_file, 1)
