@@ -1,0 +1,23 @@
+﻿Country,Territory,Unit Type
+UK,Edi,Fleet
+UK,Lon,Fleet
+UK,Lvp,Army
+France,Bre,Fleet
+France,Par,Army
+France,Mar,Army
+Germany,Kie,Fleet
+Germany,Ber,Army
+Germany,Mun,Army
+Italy,Nap,Fleet
+Italy,Rom,Army
+Italy,Ven,Army
+Austria,Tri,Fleet
+Austria,Vie,Army
+Austria,Bud,Army
+Russia,Stp-SC,Fleet
+Russia,Sev,Fleet
+Russia,Mos,Army
+Russia,War,Army
+Turkey,Ank,Fleet
+Turkey,Con,Army
+Turkey,Smy,Army
