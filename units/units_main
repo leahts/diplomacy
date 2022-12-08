@@ -10,7 +10,7 @@ sys.path.append("gui")
 import creating_gui
 
 #Initialize data and read map_data.csv
-map_raw = open("data/map_.csv", "r")
+map_raw = open("data/map_data.csv", "r")
 map_raw = map_raw.readlines()[1:]
 image_file = "data/map_w_dots.png"
 nwg = (235, 50)
@@ -20,7 +20,7 @@ map_data = parse_file.parse_file(map_raw)
 territory_and_coord = creating_gui.get_territory_and_coord(map_data)
 map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
 #map_w_arrow = create_arrow(map_w_dots, nwg, nao)
-map_w_units = create_unit(nao, "Austria", image_file)
+map_w_units = create_unit(nao, "Austria", "map_w_dots.png")
 creating_gui.display_image(map_w_units, territory_and_coord)
 #run_click_event(image_file)
 
