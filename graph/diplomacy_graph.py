@@ -26,7 +26,6 @@ graph_file = parse_file.parse_file(graph_raw)
 
 #Create nodes
 for line in graph_file:
-    line = line.split(",")
     node = Node(line[0], line[2], line[3], line[4])
     print_statement = node.printing()
 

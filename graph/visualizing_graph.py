@@ -29,9 +29,6 @@ def create_graph(graph_file):
     node_graph = nx.Graph()
     i = 0
     for line in graph_file:
-        line = line.replace("\n", "")
-        line = line.split(",")
-        line[-1] = line[-1].split(" ")
         creating_graph = GraphVisualization()
         if i == 0:
             for neighbor in line[-1]:

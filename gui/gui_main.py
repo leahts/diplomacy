@@ -27,3 +27,4 @@ map_w_arrow = create_arrow(map_w_dots, nwg, nao)
 display_image(map_w_arrow, territory_and_coord)
 #run_click_event(image_file)
 
+print(map_data)

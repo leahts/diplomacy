@@ -2,8 +2,9 @@
 import cv2
 import sys
 from creating_units import create_unit
-#Fancy import from another directory (not sure if I'm using "directory" correctly)
-#Fancy import from another directory (not sure if I'm using "directory" correctly)
+from creating_units import create_starting_territories
+
+#Fancy imports from another directory (not sure if I'm using "directory" correctly)
 sys.path.append("graph")
 import parse_file
 sys.path.append("gui")
@@ -12,15 +13,24 @@ import creating_gui
 #Initialize data and read map_data.csv
 map_raw = open("data/map_data.csv", "r")
 map_raw = map_raw.readlines()[1:]
+starting_units_file = open("data/starting_territories.csv", "r")
+starting_units_file = starting_units_file.readlines()[1:]
 image_file = "data/map_w_dots.png"
+
+#test data
 nwg = (235, 50)
 nao = (65, 100)
+
 #Call functions
 map_data = parse_file.parse_file(map_raw)
+starting_units_data = parse_file.parse_file(starting_units_file)
 territory_and_coord = creating_gui.get_territory_and_coord(map_data)
 map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
 #map_w_arrow = create_arrow(map_w_dots, nwg, nao)
 map_w_units = create_unit(nwg, "Fleet", "Austria", map_w_dots)
+
+create_starting_territories(starting_units_data, image_file, map_data)
+
 creating_gui.display_image(map_w_units, territory_and_coord)
 
 

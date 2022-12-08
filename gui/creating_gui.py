@@ -9,7 +9,6 @@ import cv2
 def get_territory_and_coord(data):
     territory_and_coord_list = []
     for line in data:
-        line = line.split(",")
         name_coord = (line[0], line[-2])
         territory_and_coord_list.append(name_coord)
     return territory_and_coord_list
