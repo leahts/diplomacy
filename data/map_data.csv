@@ -8,14 +8,15 @@ Yor,Yorkshire,Coast,FALSE,180 160,Edi Lon Lvp Nth Wal
 Wal,Wales,Coast,FALSE,155 180,Eng Iri Lon Lvp Yor
 Lon,London,Coast,TRUE,176 177,Eng Nth Wal Yor
 Nth,North Sea,Sea,FALSE,210 145,Nwg Edi Yor Lon Eng Bel Hol Hel Den Skg Nwy
-Bar,Barents Sea,Sea,FALSE,410 25,Nwg Nwy Stp
-Nwy,Norway,Coast,FALSE,270 100,Bar Fin Nth Nwg Skg Stp Swe
+Bar,Barents Sea,Sea,FALSE,410 25,Nwg Nwy Stp-NC
+Nwy,Norway,Coast,FALSE,270 100,Bar Fin Nth Nwg Skg Stp-NC Swe
 Ska,Skagerrak,Sea,FALSE,275 130,Den Nth Nwy Swe
 Iri,Irish Sea,Sea,FALSE,100 183,Eng Mao Nap Lvp Wal
 Eng,English Channel,Sea,FALSE,147 196,Bel Bre Iri Lon Mao Nth Pic Wal
-Stp,St. Petersburg,Coast,TRUE,430 120,Bar Bot Fin Lvn Mos Nwy
-Fin,Finland,Coast,FALSE,365 75,Bot Nwy Stp Swe
-Bot,Gulf of Bothnia,Sea,FALSE,340 119,Bal Fin Lvn Stp Swe
+Stp-NC,St. Petersburg (North Coast),Coast,TRUE,430 90,Bar Fin Nwy Stp-SC
+Stp-SC,St. Petersburg (South Coast),Coast,TRUE,410 140,Bot Lvn Fin Mos Stp-NC
+Fin,Finland,Coast,FALSE,365 75,Bot Nwy Stp-NC Stp-SC Swe
+Bot,Gulf of Bothnia,Sea,FALSE,340 119,Bal Fin Lvn Stp-SC Swe
 Swe,Sweden,Coast,TRUE,305 135,Bal Bot Den Fin Nwy Skg
 Den,Denmark,Coast,TRUE,264 163,Bal Hel Kie Nth Skg Swe
 Bal,Baltic Sea,Sea,FALSE,322 158,Ber Bot Den Kie Lvn Pru Swe
@@ -28,8 +29,8 @@ Ber,Berlin,Coast,TRUE,287 199,Bal Pru Sil Mun Kie
 Sil,Silesia,Land,FALSE,304 217,War Gal Boh Mun Ber Pru
 Mun,Munich,Land,TRUE,255 243,Ruh Kie Ber Sil Boh Tyr Bur
 Pru,Prussia,Coast,FALSE,325 200,Bal Lvn War Sil Ber
-Lvn,Livonia,Coast,FALSE,375 160,Stp Bot Bal Pru War Mos
-Mos,Moscow,Land,TRUE,453 176,Stp Lvn War Ukr Sev
+Lvn,Livonia,Coast,FALSE,375 160,Stp-SC Bot Bal Pru War Mos
+Mos,Moscow,Land,TRUE,453 176,Stp-SC Lvn War Ukr Sev
 War,Warsaw,Land,TRUE,347 213,Lvn Mos Ukr Gal Sil Pru
 Ukr,Ukraine,Land,FALSE,418 230,Mos Sev Rum Gal War
 Sev,Sevastopol,Coast,TRUE,473 241,Mos Ukr Run Arm

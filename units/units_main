@@ -20,7 +20,8 @@ map_data = parse_file.parse_file(map_raw)
 territory_and_coord = creating_gui.get_territory_and_coord(map_data)
 map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
 #map_w_arrow = create_arrow(map_w_dots, nwg, nao)
-map_w_units = create_unit(nao, "Austria", "map_w_dots.png")
+map_w_units = create_unit(nwg, "Fleet", "Austria", map_w_dots)
 creating_gui.display_image(map_w_units, territory_and_coord)
-#run_click_event(image_file)
+
+
 
