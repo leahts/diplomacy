@@ -17,8 +17,8 @@ map_raw = open("data/map_data.csv", "r")
 map_raw = map_raw.readlines()[1:]
 image_file = "data/kamrans_map.png"
 nwg = (235, 50)
-nao = (65, 100)
-
+#nao = (65, 100)
+nao = (330, 100)
 #Call functions
 map_data = parse_file.parse_file(map_raw)
 territory_and_coord = get_territory_and_coord(map_data)
