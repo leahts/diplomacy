@@ -3,6 +3,7 @@ import cv2
 import sys
 from creating_units import create_unit
 from creating_units import create_starting_territories
+from creating_units import update_map
 
 #Fancy imports from another directory (not sure if I'm using "directory" correctly)
 sys.path.append("graph")
@@ -27,11 +28,10 @@ starting_units_data = parse_file.parse_file(starting_units_file)
 territory_and_coord = creating_gui.get_territory_and_coord(map_data)
 map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
 #map_w_arrow = create_arrow(map_w_dots, nwg, nao)
-map_w_units = create_unit(nwg, "Fleet", "Austria", map_w_dots)
-
-create_starting_territories(starting_units_data, image_file, map_data)
-
-creating_gui.display_image(map_w_units, territory_and_coord)
+#map_w_units = create_unit(nwg, "Fleet", "Austria", map_w_dots)
+#updated_map_w_units = update_map(map_w_units)
+starting_map = create_starting_territories(starting_units_data, image_file, map_data)
+creating_gui.display_image(starting_map)
 
 
 

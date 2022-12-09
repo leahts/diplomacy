@@ -5,7 +5,11 @@ from PIL import Image
 from PIL import ImageDraw
 import cv2
 
-#Takes in the map_data.csv and returns territory and coordinates in a tuple
+"""
+Function Purpose: obtain a list of the territories and coordinates
+Input: map_Data.csv
+Output: list of tuples, where each tuple is (territory, coordinates_of_that_territory)
+"""
 def get_territory_and_coord(data):
     territory_and_coord_list = []
     for line in data:
@@ -13,7 +17,11 @@ def get_territory_and_coord(data):
         territory_and_coord_list.append(name_coord)
     return territory_and_coord_list
 
-#Add dot to map; takes in the territories and coordinates and outputs the image file as a png
+"""
+Function Purpose: create dots on map
+Input: list of coordinate info; list is composed of tuples in which each tuple has format (territory, coord)
+Output: image file (format: png)
+"""
 def create_dot(coord_info_list, image_file):
     image = Image.open(image_file)
     for coord_info in coord_info_list:
@@ -32,8 +40,12 @@ def create_dot(coord_info_list, image_file):
     updated_map = "data/map_w_dots.png"
     return updated_map
 
-#Display image function: inputs a .png file and outputs the image
-def display_image(file, coordinate_info):
+"""
+Purpose: create a GUI of the map
+Input: image file (format: png)
+Output: GUI of map
+"""
+def display_image(file):
     map_layout = [
         [sg.Image(file, size =(600, 400))],
         [sg.Text("Imperial Diplomacy")]
@@ -50,11 +62,15 @@ def display_image(file, coordinate_info):
                 window[file].update()"""
         window.close()
 
-#From https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
-#Thank you geeksforgeeks
-#Creates an image that, when the mouse clicks on the image, outputs the coordinates of the click
+"""
+Function purpose: create an image that a mouse can click on to obtain the coordinates of the click;
+    used for finding coordinates of each territory
+Input: no inputs when calling function
+Output: clickable image
+From https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
+Thank you geeksforgeeks
+"""
 def click_event(event, x, y, flags, params):
-    # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
         print(x, ' ', y)
         font = cv2.FONT_HERSHEY_SIMPLEX
@@ -63,15 +79,23 @@ def click_event(event, x, y, flags, params):
                     1, (255, 0, 0), 2)
         cv2.imshow('image', img)
 
-#Get coordinates; from https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
-#Allows user to click on location and get location in terms of (x, y) coordinates
+"""
+Function purpose: runs the click_event function
+Input: image_file (format: png)
+Output: the image file that, when clicked, gives (x, y) coordinates of location the mouse clicked
+From https://www.geeksforgeeks.org/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
+"""
 def run_click_event(image):
     cv2.imshow('image', img)
     cv2.setMouseCallback('image', click_event)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-#Creates an arrow between two points and returns the map with the arrow as a png file
+"""
+Function Purpose: create an arrow between two points
+Input: image of map (format: png) and coordinates of two points
+Output: an image of the map (format: png) that has an arrow between two points
+"""
 def create_arrow(image_file, p1, p2):
     black = (0, 0, 0)
     x1 = int(p1[0])
@@ -99,5 +123,6 @@ def create_arrow(image_file, p1, p2):
     return updated_map
 
 
+#Global variables so functions all run
 image_file = "data/kamrans_map.png"
 img = cv2.imread(image_file, 1)
