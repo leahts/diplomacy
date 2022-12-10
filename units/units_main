@@ -33,5 +33,6 @@ map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
 starting_map = create_starting_territories(starting_units_data, image_file, map_data)
 creating_gui.display_image(starting_map)
 
+    
 
 
