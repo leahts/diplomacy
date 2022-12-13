@@ -1,9 +1,7 @@
 #Imports
 import cv2
 import sys
-from creating_units import create_unit
-from creating_units import create_starting_territories
-from creating_units import update_map
+from run_create_units import run_create_units
 
 #Fancy imports from another directory (not sure if I'm using "directory" correctly)
 sys.path.append("graph")
@@ -16,20 +14,19 @@ map_raw = open("data/map_data.csv", "r")
 starting_units_file = open("data/starting_territories.csv", "r")
 image_file = "data/map_w_dots.png"
 
-#test data
-nwg = (235, 50)
-nao = (65, 100)
-
-#Call functions
+"""
+Call Functions:
+- parse_file => parses the map_data.csv file
+- get_territory_and_coord => takes the parsed data and returns the territories and coords for each territory
+- create_dot => create an empty dot for each territory (used to ensure territory location entries are correct)
+- run_create_units => runs the create_units class; returns the map used for the gui
+"""
 map_data = parse_file.parse_file(map_raw)
-starting_units_data = parse_file.parse_file(starting_units_file)
-territory_and_coord = creating_gui.get_territory_and_coord(map_data)
-map_w_dots = creating_gui.create_dot(territory_and_coord, image_file)
-#map_w_arrow = create_arrow(map_w_dots, nwg, nao)
-#map_w_dots = create_unit(nwg, "Fleet", "Austria", map_w_dots)
-#updated_map_w_dots = update_map(map_w_dots)
-starting_map = create_starting_territories(starting_units_data, image_file, map_data)
-creating_gui.display_image(starting_map)
+starting_units = parse_file.parse_file(starting_units_file)
+num_of_units = len(starting_units)
+units_on_map = run_create_units(starting_units, map_data, image_file)
+creating_gui.display_image(units_on_map)
+
 
     
 
