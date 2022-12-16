@@ -19,11 +19,11 @@ nodes = []
 filtered_moves = []
 
 moves = [
-    {"Country": "UK", "Unit": "Edi", "Action": "H"},
-    {"Country": "UK", "Unit": "Lon", "Action": "A Eng"},
-    {"Country": "UK", "Unit": "Lvp", "Action": "S Edi H"},
-    {"Country": "France", "Unit": "Bre", "Action": "S Par A Gas"},
-    {"Country": "France", "Unit": "Par", "Action": "A Gas"},
+    #{"Country": "UK", "Unit": "Edi", "Action": "H"},
+    #{"Country": "UK", "Unit": "Lon", "Action": "A Eng"},
+    #{"Country": "UK", "Unit": "Lvp", "Action": "S Edi H"},
+   # {"Country": "France", "Unit": "Bre", "Action": "S Par A Gas"},
+    #{"Country": "France", "Unit": "Par", "Action": "A Gas"},
     {"Country": "Austria", "Unit": "Tri", "Action": "A Ven"},
     {"Country": "Italy", "Unit": "Ven", "Action": "S Rom H"},
     {"Country": "Italy", "Unit": "Rom", "Action": "H"}
@@ -49,7 +49,7 @@ for move in moves:
     filtered_move = filtering_moves.filter_move(move)
     if filtered_move != False:
         filtered_moves.append(filtered_move)
-print(filtered_moves)
+#print(filtered_moves)
 
 #print(filtered_moves)
 validating_moves = Validate_move(filtered_moves, nodes, units)
