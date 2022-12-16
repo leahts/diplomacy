@@ -53,7 +53,7 @@ Gal,Galicia,Land,FALSE,365 235,War Ukr Run Bud Vie Boh Sil
 Boh,Bohemia,Land,FALSE,285 235,Mun Sil Gal Vie Tyr
 Tyr,Tyrolia,Land,FALSE,267 257,Mun Boh Vie Tri Ven Pie
 Vie,Vienna,Land,TRUE,305 251,Boh Gal Bud Trie Tyr
-Tri,Trieste,Coast,TRUE,300 277,Tyr Vie Bud Ser Alb Adr Vie
+Tri,Trieste,Coast,TRUE,300 277,Tyr Vie Bud Ser Alb Adr Ven
 Bud,Budapest,Land,TRUE,345 275,Tri Vie Gal Run Ser
 Pie,Piedmont,Coast,FALSE,227 285,Mar Tyr Ven Tus Lyo
 Tus,Tuscany,Coast,FALSE,254 308,Pie Ven Rom Tys Lyo

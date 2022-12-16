@@ -101,11 +101,9 @@ class Validate_move():
 
     def find_related_moves(self, indiv_territory):
         related_moves = []
-        i = 0
-        num_of_moves = len(self.moves)
-        while i < num_of_moves:
-            if indiv_territory in self.moves[i]["Action"]:
-                related_moves.append(self.moves[i])
+        for move in self.moves:
+            if indiv_territory in move["Action"]:
+                related_moves.append(move)
         return related_moves
 
     def check_attack_validity(self, territory, occupied, related_moves):

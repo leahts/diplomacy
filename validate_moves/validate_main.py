@@ -49,8 +49,8 @@ for move in moves:
     filtered_move = filtering_moves.filter_move(move)
     if filtered_move != False:
         filtered_moves.append(filtered_move)
-#print(filtered_moves)
-
+print(filtered_moves)
+print(" ")
 #print(filtered_moves)
 validating_moves = Validate_move(filtered_moves, nodes, units)
 for territory in territories_parsed:
