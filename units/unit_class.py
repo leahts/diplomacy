@@ -24,7 +24,7 @@ Inputs:
 - image file of map 
 Output: an image file of the map with the unit
 """
-class create_unit():
+class Unit():
 
     def __init__(self, country, territory_name, unit_type, map_file, image_file):
         self.country = country

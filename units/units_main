@@ -24,7 +24,7 @@ Call Functions:
 map_data = parse_file.parse_file(map_raw)
 starting_units = parse_file.parse_file(starting_units_file)
 num_of_units = len(starting_units)
-units_on_map = run_create_units(starting_units, map_data, image_file)
+units_on_map = run_create_units(starting_units, map_data, image_file, "updated map")
 creating_gui.display_image(units_on_map)
 
 
