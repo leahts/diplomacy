@@ -85,11 +85,11 @@ class Validate_move():
                     print("territory", territory)
                     print("Occupation status:", occupation_status)
                     print("move", move)
-                    hold_validity = self.check_attack_validity(territory, move, occupation_status, relevant_moves)
+                    hold_validity = self.check_attack_validity(territory, occupation_status, relevant_moves)
                     print("hold validity", hold_validity)
                     return hold_validity
                 elif action[0] == "A":
-                    attack_validity = self.check_attack_validity(territory, move, occupation_status, relevant_moves)
+                    attack_validity = self.check_attack_validity(territory, occupation_status, relevant_moves)
                     print(attack_validity)
                     return attack_validity
                 elif action[0] == "S":
@@ -104,7 +104,7 @@ class Validate_move():
                 else:
                     return "SOL"
 
-    def check_attack_validity(self, territory, move, occupied, related_moves):
+    def check_attack_validity(self, territory, occupied, related_moves):
         attacking_info = []
         supports_for_each_move = []
         num_of_related_moves = len(related_moves)
@@ -140,19 +140,18 @@ class Validate_move():
                         attack_supports += 1
                 attacking_info.append([each_move, attack_supports])
                 supports_for_each_move.append(attack_supports)
-        #WORK ON THIS AREA
-        #determine the winning move if there are multiple moves/attacks involving a territory
+        #Determine the winning move if there are multiple moves/attacks involving a territory
         if len(supports_for_each_move) > 0:
             attacks_w_most_support = []
-            #find the move(s) with the most support
+            #Find the move(s) with the most support
             maximum_support = max(supports_for_each_move)
             for each_attack in attacking_info:
                 if each_attack[1] == maximum_support:
                     attacks_w_most_support.append(each_attack[0])
-            #determine what to do if there's multiple moves with the most support
+            #Determine what to do if there's multiple moves with the most support
             if len(attacks_w_most_support) > 1:
-                #if there are multiple attacks on a unit, the occupied unit wins
-                #if a holding unit is attacked (with the same support), the occupied unit wins
+                #If there are multiple attacks on a unit, the occupied unit wins
+                #If a holding unit is attacked (with the same support), the occupied unit wins
                 if occupied == True:
                     winning_move = self.find_move_from_territory(territory)
                     print(winning_move, "occupied")
@@ -161,7 +160,6 @@ class Validate_move():
                     print("hello, no winning move")
                     return None
             else:
-                #print("attack unit that won", attacking_info[0][0])
                 winning_move = self.find_move_from_territory(attacking_info[0][0])
                 return winning_move
         #determine and return move if there are no supports for the attack/hold
@@ -200,12 +198,13 @@ class Validate_move():
                     else:
                         related_attack = True
                 #if the related move is not attacked and support is cut, then increase the cut support's count
+                #ASK MERCY ABOUT RECURSION - DO I NEED TO FIND SUPPORT FOR ATTACK
                 if related_move["Action"] == "A {}".format(territory) and related_attack == False:
                     attack_on_territory_count += 1
             #If there are no potential attacks on the related move, determine if it is a cut support
             else:
                 #If the related move attacks the territory, increase the attack count by one
-                #DO I NEED TO FIND SUPPORT FOR ATTACK
+                #ASK MERCY ABOUT RECURSION - DO I NEED TO FIND SUPPORT FOR ATTACK
                 if related_move["Action"] == "A {}".format(territory):
                     attack_on_territory_count += 1
                 #If the related move does not attack the territory, increase the support count by one
@@ -263,7 +262,7 @@ class Validate_move():
             attack_count = attacks_on_territory_info[0][1]
             attack_territory = attacks_on_territory_info[0][0]
             #if the support is greater than the attack's support, return the support
-            #QUESTION: if there's any cut support on support_type "S", isn't support cut?
+            #QUESTION TO ASK MERCY: if there's any cut support on support_type "S", isn't support cut?
             if is_support_valid > attack_count:
                 winning_move = self.support_return_function(territory, support_type, is_support_valid)
                 if support_type == "S":
@@ -288,11 +287,15 @@ class Validate_move():
             winning_move = self.support_return_function(territory, support_type, is_support_valid)
             return winning_move
 
+    #find the move for the territory
     def find_move_from_territory(self, territory):
         for move in self.moves:
             if move["Unit"] == territory:
                 return move
 
+    #returns the type of support to the support validity function
+    #if the support function was called in the attack_validity function, return the support count (int)
+    #if the support function was called in successful_moves (i.e. the territory is supporting), return the winning move
     def support_return_function(self, og_territory, support_type, support_validity_count):
         if support_type == "S":
             winning_move = self.find_move_from_territory(og_territory)
@@ -300,6 +303,8 @@ class Validate_move():
         elif support_type == "A":
             return support_validity_count
 
+    #find the moves that are related to the territory in question
+    #related => a different move has an action involving the territory in question
     def find_related_moves(self, indiv_territory):
         related_moves = []
         for move in self.moves:
