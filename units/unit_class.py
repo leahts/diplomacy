@@ -26,9 +26,10 @@ Output: an image file of the map with the unit
 """
 class Unit():
 
-    def __init__(self, country, territory_name, unit_type, map_file, image_file):
+    def __init__(self, country, territory_name, identity_number, unit_type, map_file, image_file):
         self.country = country
-        self.territory = territory_name
+        self.starting_territory = territory_name
+        self.id = identity_number
         self.unit_type = unit_type
         self.image = image_file
         self.map_file = map_file
@@ -40,7 +41,7 @@ class Unit():
     """
     def obtain_start_coord(self):
         for line in self.map_file:
-            if line[0] == self.territory:
+            if line[0] == self.starting_territory:
                 coord = line[4]
                 return coord
 
