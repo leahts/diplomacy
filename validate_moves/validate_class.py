@@ -80,7 +80,6 @@ class Validate_move():
             action = move["Action"]
             if move["Unit"] == territory:
                 if action == "H":
-                    occupation_status = True
                     print(" ")
                     print("territory", territory)
                     print("Occupation status:", occupation_status)
