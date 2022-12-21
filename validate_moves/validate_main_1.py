@@ -71,12 +71,13 @@ for each_move in moves:
     if filtered_move != None:
         filtered_moves[each_move] = moves[each_move]
 
-print(filtered_moves)
+
 
 validating_moves = Validate_move(filtered_moves, node_dict, unit_dict)
 for territory in territories_parsed:
     det_successful_move = validating_moves.successful_move(territory[0])
-    print(det_successful_move)
+    if det_successful_move != None:
+        print(det_successful_move)
     #successful_moves.append(det_successful_move)
 
 #print("Successful moves", successful_moves)
