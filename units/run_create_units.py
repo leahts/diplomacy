@@ -1,6 +1,13 @@
 #Imports
 from unit_class import update_map
 from unit_class import Unit
+import sys
+
+#Fancy imports
+sys.path.append("graph")
+import node_class
+from graph_main import *
+
 
 def run_create_units(units_to_create, map_file, image_file, return_type):
     i = 0
@@ -10,6 +17,10 @@ def run_create_units(units_to_create, map_file, image_file, return_type):
         country = units_to_create[i][0]
         territory = units_to_create[i][1]
         unit_type = units_to_create[i][2][0]
+        for node in nodes:
+            if node.name == territory:
+                territory = node.name
+                break
         if i == 0:
             unit = Unit(country, territory, i, unit_type, map_file, image_file)
             unit_on_map = unit.create_unit_symbol()
