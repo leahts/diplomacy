@@ -9,9 +9,9 @@ class Validate_move():
         self.nodes = nodes
         self.units = units
     
-    def filter_move(self, unit_id, move):
+    def filter_move(self, starting_territory, move):
         country = move["country"]
-        starting_territory = move["starting territory"]
+        unit_id = move["unit id"]
         action = move["action"]
         neighbors = self.nodes[starting_territory]["neighbors"]
         if starting_territory in self.units[unit_id]["starting territory"] and country in self.units[unit_id]["country"]:
@@ -63,31 +63,51 @@ class Validate_move():
         country: unit.country, 
         unit type: unit.unit_type}
 
-    moves entires: unit.id:
+    moves entires: starting territory:
         {country: unit.country,
-        starting_territory: unit.starting_territory,
+        unit id: unit.id,
         "action": action}
     """
     def successful_move(self, territory):
         related_moves = {}
+        occupied = False
+        action = None
         neighbors = self.nodes[territory]["neighbors"]
-        all_moves = self.moves.values()
+        if territory in self.moves.keys():
+            occupied = True
+            action = self.moves[territory]["action"]
+        for neighbor in neighbors:
+            if neighbor in self.moves.keys():
+                if " A {}".format(territory) in self.moves[neighbor]["action"]:
+                    related_moves[neighbor] = self.moves[neighbor]["action"]
+        if occupied:
+            if len(related_moves) > 0:
+                if action[0] == "H":
+                    print("{} might hold".format(territory))
+                elif action[0] == "S":
+                    print("{} might support".format(territory))
+                elif action[0] == "A":
+                    print("{} might attack".format(territory))
+            else:
+                if action[0] == "H":
+                    print("{} holds".format(territory))
+                elif action[0] == "S":
+                    print("{} supports".format(territory))
+                elif action[0] == "A":
+                    print("{} might attack; it is not being attacked".format(territory))
+        else:
+            if len(related_moves) > 0:
+                print("{} is attacked".format(territory))
+            else:
+                return None
         
+
+                
         
         
         
         #Determine if the territory is occupied
-        """for each_move in self.moves:
-            if territory in self.moves[each_move]["starting territory"]:
-                occupied = True
-                action = self.moves[each_move]["action"]
-            if territory in self.moves[each_move]["action"]:
-                related_moves[self.moves[each_move]["starting territory"]] = self.moves[each_move]["action"]
-        #If the territory is occupied, check if the move's action is to hold or support
-        for related_move in related_moves:
-            if "A {}".format(territory) in related_moves[related_move]:
-                related_attack = True
-                break
+        """
         if occupied:
             if related_attack:
                 if action[0] == "H":
