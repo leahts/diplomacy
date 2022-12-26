@@ -26,10 +26,22 @@ moves = {}
 
 #Call functions
 """
-Properties of Imported Classes:
-- Node properties: name, land_type, dot_status, neighbors
-- Unit properties: id, country, starting_territory, unit_type, image, map_file
+node_dict entires: name: 
+    {"land type": node.land_type, 
+    "dot status": node.dot_status, 
+     "neighbors": node.neighbors}
+
+unit_dict entries: unit.id: 
+    {starting territory: unit.starting_territory, 
+    country: unit.country, 
+    unit type: unit.unit_type}
+
+moves entires: starting territory:
+    {country: unit.country,
+    unit id: unit.id,
+    "action": action}
 """
+
 for node in nodes:
     node_dict[node.name] = {"land type": node.land_type, "dot status": node.dot_status, "neighbors": node.neighbors}
 
