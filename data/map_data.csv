@@ -72,7 +72,7 @@ Gre,Greece,Coast,TRUE,363 364,Alb Ser Bul-SC Aeg Ion
 Bla,Black Sea,Sea,FALSE,450 300,Bul-EC Rum Arm Ank Con Sev
 Aeg,Aegean Sea,Sea,FALSE,394 358,Gre Bul-SC Con Smy Eas Ion
 Eas,Eastern Mediterranean,Sea,FALSE,464 382,Ion Aeg Smy Syr
-Con,Constantinople,Coast,TRUE,423 343,Bul-SC Bul-EC Bla Ank Smy Aeg
+Con,Constantinople,Coast,TRUE,423 343,Bul-SC Bul-NC Bla Ank Smy Aeg
 Ank,Ankara,Coast,TRUE,487 310,Bla Arm Smy Con
 Arm,Armenia,Coast,FALSE,565 340,Sev Bla Ank Smy Syr
 Smy,Smyrna,Coast,TRUE,445 363,Con Ank Arm Syr Eas Aeg

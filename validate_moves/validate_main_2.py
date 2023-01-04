@@ -16,7 +16,7 @@ territories_raw = open("data/map_data.csv", "r")
 territories_parsed = parse_file.parse_file(territories_raw)
 starting_units_parsed = parse_file.parse_file(starting_units_raw)
 image_file = "data/map_w_dots.png"
-moves_file = open("data/starting_moves_trial_0.csv", "r")
+moves_file = open("data/starting_moves_trial_1.csv", "r")
 moves_parsed = parse_moves(moves_file)
 filtered_moves = []
 successful_moves = []
@@ -66,6 +66,8 @@ for unit in units:
 
 #print("MOVES", moves)
 
+#print(node_dict.keys())
+
 filtering_moves = Validate_move(moves, node_dict, unit_dict)
 filtered_moves = {}
 
@@ -78,7 +80,9 @@ for each_move in moves:
 validating_moves = Validate_move(filtered_moves, node_dict, unit_dict)
 for territory in territories_parsed:
     det_successful_move = validating_moves.successful_move(territory[0])
-    if det_successful_move != None:
+    if det_successful_move == "S" or det_successful_move == "H":
+        print(territory[0], det_successful_move)
+    elif det_successful_move != None:
         print(det_successful_move)
     #if det_successful_move != None:
         #print(det_successful_move)

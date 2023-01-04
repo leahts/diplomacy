@@ -16,7 +16,12 @@ class Validate_move():
         else:
             player_owns_unit = False
         if action[0] == "A":
-            destination = action[-3:]
+            if "-SC" in action or "-NC" in action:
+                #print("yes", action)
+                destination = action[-6:]
+            else:
+                destination = action[-3:]
+            #print(destination)
             land_type = self.nodes[destination]["land type"]
             if player_owns_unit == True:
                 if destination in neighbors:
@@ -36,7 +41,7 @@ class Validate_move():
             if land_type_check == True and neighbor_check == True:
                 return move
             elif land_type_check == True and neighbor_check == False :
-                print("maybe a unit is trying to convoy")
+                print(starting_territory, destination, "maybe a unit is trying to convoy")
             else:
                 return None
         elif action == "H":
@@ -64,30 +69,32 @@ class Validate_move():
         if occupied:
             if len(related_moves) > 0:
                 if action[0] == "H":
-                    checking_hold = self.attack_validity(territory, action, occupied, related_moves)
-                    self.moves[territory]["action"] = checking_hold
-                    print(territory, self.moves[territory]["action"])
+                    outcome = self.attack_validity(territory, action, occupied, related_moves)
+                    self.moves[territory]["action"] = outcome
+                    #print(territory, self.moves[territory]["action"])
                 elif action[0] == "S":
-                    checking_support = self.support_validity(territory, occupied, action, related_moves, "S")
-                    self.moves[territory]["action"] = checking_support
-                    print(territory, self.moves[territory]["action"])
+                    outcome = self.support_validity(territory, occupied, action, related_moves, "S")
+                    self.moves[territory]["action"] = outcome
+                    #print(territory, self.moves[territory]["action"])
                 elif action[0] == "A":
-                    checking_attack = self.attack_validity(territory, action, occupied, related_moves)
-                    print(territory, checking_attack)
+                    outcome = self.attack_validity(territory, action, occupied, related_moves)
+                    #print(territory, checking_attack)
             #The move is valid if there are no moves attacking/supporting the territory
             else:
                 if action[0] == "H":
-                    print("{} holds".format(territory))
+                    outcome = "H"
+                    #print("{} holds".format(territory))
                 elif action[0] == "S":
-                    print("{} supports".format(territory))
+                    outcome = "S"
+                    #print("{} supports".format(territory))
                 #check occupied!!!!!!
                 elif action[0] == "A":
-                    checking_attack = self.attack_validity(territory, action, occupied, related_moves)
-                    print(territory, checking_attack)
+                    outcome = self.attack_validity(territory, action, occupied, related_moves)
+                    #print(territory, checking_attack)
         else:
             if len(related_moves) > 0:
-                checking_attack = self.attack_validity(territory, None, occupied, related_moves)
-                print(checking_attack, related_moves)
+                outcome = self.attack_validity(territory, None, occupied, related_moves)
+                #print(checking_attack, related_moves)
                 """if checking_attack == "A {}".format(territory):
                     print("checking attacking", checking_attack)
                 else:
@@ -96,7 +103,8 @@ class Validate_move():
                     #print(winning_territory, self.moves[winning_territory]["action"])
                 #print("The result of the attack on the empty territory is {}".format(checking_attack))
             else:
-                return None
+                outcome = None
+        return outcome
 
     def attack_validity(self, territory, action, occupied, related_moves):
         occupied_support_count = 0
@@ -143,31 +151,46 @@ class Validate_move():
                     attacks_w_most_support.append(each_attack[0])
         if occupied:
             if related_attack:
+                #print(territory)
                 if len(attacks_w_most_support) > 1:
+                    #print("yet another test")
                     winning_move = action
                 elif len(attacks_w_most_support) == 1:
-                    winning_move = attacks_w_most_support[0]
+                    #print("trying to test again")
+                    winning_attacker = attacks_w_most_support[0]
+                    winning_move = self.moves[winning_attacker]["action"]
                 else:
+                    #print("trying to test")
                     winning_move = related_attack_info[0][0]
             #If the unit is occupied and tries to attack another occupied territory
             #then it should return a hold
             else:
+               # print("testing", territory)
                 potential_winning_move = self.moves[territory]["action"]
                 if potential_winning_move[0] == "A":
-                    potential_territory = potential_winning_move[-3:]
+                    #print("trying to test the territory", territory)
+                    if "-NC" in potential_winning_move or "-SC" in potential_winning_move:
+                        potential_territory = potential_winning_move[-6:]
+                    else:
+                        potential_territory = potential_winning_move[-3:]
                     if potential_territory in self.moves.keys():
-                        #recursion?
+                        #print("testing~!!!", territory)
                         move_pot_stopping_winning_move = self.moves[potential_territory]["action"]
                         if move_pot_stopping_winning_move[0] == "A":
+                            #print("test", territory)
                             related_other_moves = {}
                             for other_move in self.moves:
-                                if potential_territory in self.moves[other_move]["action:"]:
-                                    related_other_moves[potential_territory] = self.moves[other_move["action"]]
+                                #print(other_move)
+                                if potential_territory in self.moves[other_move]["action"]:
+                                    related_other_moves[potential_territory] = self.moves[other_move]["action"]
                             possible_attack = self.attack_validity(potential_territory, move_pot_stopping_winning_move, True, related_other_moves)
-                            print("recursion WAS SUCCESSFUL", possible_attack)
+                            winning_move = possible_attack
+                            #print("attack validity", winning_move)
                         else:
                             winning_move = "H"
                     else:
+                        print("HERE IT IS", territory)
+                        #winning_move = potential_winning_move
                         winning_move = None
                 else:
                     winning_move = potential_winning_move
