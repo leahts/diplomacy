@@ -24,23 +24,6 @@ node_dict = {}
 unit_dict = {}
 moves = {}
 
-#Call functions
-"""
-node_dict entires: name: 
-    {"land type": node.land_type, 
-    "dot status": node.dot_status, 
-     "neighbors": node.neighbors}
-
-unit_dict entries: unit.id: 
-    {starting territory: unit.starting_territory, 
-    country: unit.country, 
-    unit type: unit.unit_type}
-
-moves entires: starting territory:
-    {country: unit.country,
-    unit id: unit.id,
-    "action": action}
-"""
 
 for node in nodes:
     node_dict[node.name] = {"land type": node.land_type, "dot status": node.dot_status, "neighbors": node.neighbors}
@@ -76,7 +59,7 @@ for each_move in moves:
     if filtered_move != None:
         filtered_moves[each_move] = moves[each_move]
 
-
+print("attack on Kie from berlin is not showing")
 validating_moves = Validate_move(filtered_moves, node_dict, unit_dict)
 for territory in territories_parsed:
     det_successful_move = validating_moves.successful_move(territory[0])

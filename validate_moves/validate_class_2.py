@@ -54,6 +54,7 @@ class Validate_move():
             return None
 
     def successful_move(self, territory):
+        #print("running for ", territory)
         #print(territory)
         related_moves = {}
         occupied = False
@@ -65,7 +66,10 @@ class Validate_move():
         for neighbor in neighbors:
             if neighbor in self.moves.keys():
                 if territory in self.moves[neighbor]["action"]:
+                    #print(neighbor, self.moves[neighbor]["action"])
                     related_moves[neighbor] = self.moves[neighbor]["action"]
+        print("running for", territory, action)
+        #print("dict for {}".format(territory), related_moves)
         if occupied:
             if len(related_moves) > 0:
                 if action[0] == "H":
@@ -73,12 +77,14 @@ class Validate_move():
                     self.moves[territory]["action"] = outcome
                     #print(territory, self.moves[territory]["action"])
                 elif action[0] == "S":
-                    outcome = self.support_validity(territory, occupied, action, related_moves, "S")
+                    #outcome = self.support_validity(territory, occupied, action, related_moves, "S")
+                    outcome = self.support_validity(territory, occupied, related_moves, "S")
                     self.moves[territory]["action"] = outcome
                     #print(territory, self.moves[territory]["action"])
                 elif action[0] == "A":
+                    print("testing for berlin A Kie", territory, related_moves, action)
                     outcome = self.attack_validity(territory, action, occupied, related_moves)
-                    #print(territory, checking_attack)
+                    #print("trying to find the attack on holland", territory, outcome)
             #The move is valid if there are no moves attacking/supporting the territory
             else:
                 if action[0] == "H":
@@ -107,35 +113,37 @@ class Validate_move():
         return outcome
 
     def attack_validity(self, territory, action, occupied, related_moves):
+       #print("TERRITORY AND RELATED MOVES", territory, related_moves)
         occupied_support_count = 0
         related_attack_info = []
         support_counts = []
         related_attack = False
         possible_cut_dict = {}
+        print("the related moves for {} is ".format(territory), related_moves)
         for related_move in related_moves:
             related_support_count = 0
             possible_cut_territories = self.nodes[related_move]["neighbors"]
+            #print("possibilites fro cutting {}".format(territory), "with attack from {}".format(related_move), possible_cut_territories)
             for each_cut in possible_cut_territories:
                 if each_cut in self.moves.keys():
-                    possible_cut_dict[each_cut] = self.moves[each_cut]["action"]
+                    if self.moves[each_cut]["action"][0] == "A {}".format(territory) or self.moves[each_cut]["action"][0] == "S":
+                        possible_cut_dict[each_cut] = self.moves[each_cut]["action"]
+            #print("possible cuts for {}".format(territory), possible_cut_dict)
             #Check if attack is valid
-            if related_moves[related_move] == "A {}".format(territory):
-                if possible_cut_dict != None:
-                    if "A {}".format(related_move) in possible_cut_dict.values():
-                        related_attack = False
-                    else:
-                        related_attack = True
-                        attack_support = self.support_validity(related_move, True, related_moves[related_move], possible_cut_dict, "A")
-                        if attack_support != None:
-                            related_support_count = related_support_count + attack_support
-                        related_attack_info.append([related_move, related_support_count])
-                        support_counts.append(related_support_count)
-                else:
-                    related_attack_info.append([related_move, 0])
+            if possible_cut_dict != None:
+                if "A {}".format(territory) in possible_cut_dict:
+                    related_attack = True
+                    #attack_support = self.support_validity(related_move, True, related_moves[related_move], possible_cut_dict, "A")
+                    attack_support = self.support_validity(related_move, True, possible_cut_dict, "A")
+                    #print("support for attack on {}".format(related_move), attack_support, possible_cut_dict)
+                    if attack_support != None:
+                        related_support_count = related_support_count + attack_support
+                    related_attack_info.append([related_move, related_support_count])
+                    support_counts.append(related_support_count)
             #Check if supporting a hold is valid
-            elif related_move == "S {} H".format(territory):
-                if possible_cut_dict != None:
-                    support_hold = self.support_validity(related_move, True, related_moves[related_move], possible_cut_dict, "A")
+                elif "S {} H".format(territory) in possible_cut_dict:
+                    #support_hold = self.support_validity(related_move, True, related_moves[related_move], possible_cut_dict, "A")
+                    support_hold = self.support_validity(related_move, True, possible_cut_dict, "A")
                     if support_hold != None:
                         occupied_support_count = occupied_support_count + support_hold
                 else:
@@ -150,8 +158,8 @@ class Validate_move():
                 if each_attack[1] == maximum_support:
                     attacks_w_most_support.append(each_attack[0])
         if occupied:
+            #print(territory, related_attack, related_attack_info)
             if related_attack:
-                #print(territory)
                 if len(attacks_w_most_support) > 1:
                     #print("yet another test")
                     winning_move = action
@@ -162,10 +170,9 @@ class Validate_move():
                 else:
                     #print("trying to test")
                     winning_move = related_attack_info[0][0]
-            #If the unit is occupied and tries to attack another occupied territory
-            #then it should return a hold
+            #Check what to do if the unit moves to an occupied unit
             else:
-               # print("testing", territory)
+               #print("testing", territory)
                 potential_winning_move = self.moves[territory]["action"]
                 if potential_winning_move[0] == "A":
                     #print("trying to test the territory", territory)
@@ -173,6 +180,9 @@ class Validate_move():
                         potential_territory = potential_winning_move[-6:]
                     else:
                         potential_territory = potential_winning_move[-3:]
+                    #If the unit is occupied and tries to attack another occupied territory
+                    #then it should hold
+                    #print("trying to test the territory", territory, potential_territory)
                     if potential_territory in self.moves.keys():
                         #print("testing~!!!", territory)
                         move_pot_stopping_winning_move = self.moves[potential_territory]["action"]
@@ -189,29 +199,76 @@ class Validate_move():
                         else:
                             winning_move = "H"
                     else:
-                        print("HERE IT IS", territory)
-                        #winning_move = potential_winning_move
                         winning_move = None
                 else:
                     winning_move = potential_winning_move
         else:
             if related_attack:
+                #print("Checking TYR attack", territory, related_attack_info)
+                #print("there's a related attack on unoccupied {}".format(territory))
                 if len(attacks_w_most_support) > 1:
                     winning_move = None
                 elif len(attacks_w_most_support) == 1:
+                    #print("checking tyr attack")
                     winning_territory = attacks_w_most_support[0]
                     winning_move = related_moves[winning_territory]
                 else:
                     winning_territory = related_attack_info[0][0]
                     winning_move = related_moves[winning_territory]["action"]
             else:
-                winning_move = None
+                #print("the unoccupied unit being attacked is {}".format(territory))
+                winning_move = "A {}".format(territory)
+                #print(territory, winning_move)
         return winning_move
 
-    def support_validity(self, territory, occupied, move, related_moves, support_type):
+    #def support_validity(self, territory, occupied, move, related_moves, support_type):
+    def support_validity(self, territory, occupied, related_moves, support_type):
         related_attack_info = []
         related_support_count = []
         territory_supports = 0
+        print("testing support for TYR", territory, related_moves)
+        if occupied == True and self.moves[territory]["action"] == "H":
+            #check for units supporting the hold
+            if "S {} H".format(territory) in related_moves.values():
+                for related_move in related_moves:
+                    if related_move == "S {} H".format(territory):
+                        pot_support = check_cut_support_for_attack(territory, related_moves, related_move)
+                        if pot_support == True:
+                            territory_supports += 1
+        elif occupied == True and self.moves[territory]["action"][0] == "A":
+            if "S {} A".format(territory) in related_moves.values():
+                for related_move in related_moves:
+                    if related_move == "S {} H".format(territory):
+                        pot_support = check_cut_support_for_attack(territory, related_moves, related_move)
+                        if pot_support == True:
+                            territory_supports += 1
+        if len(related_moves) > 1:
+            #print("test")
+            if "A {}".format(territory) in related_moves.values():
+                for related_move in related_moves:
+                    if related_move == "A {}".format(territory):
+                        related_support_count = 0
+                        related_territory = related_move["starting territory"]
+                        potential_supports = related_moves.pop(related_move)
+                        #Determine support for multiple potential supports for related attack
+                        if len(potential_supports) > 1:
+                            for potential_support in potential_supports:
+                                potential_support_validity = check_cut_support_for_attack(territory, related_territory, potential_support)
+                                if potential_support_validity == True:
+                                    related_support_count += 1
+                        #Determine support for one potential support for related attack
+                        elif len(potential_supports) == 1:
+                            potential_support_validity = check_cut_support_for_attack(territory, related_territory, potential_supports[0])
+                            if potential_support_validity == True:                                    related_support_count += 1
+                    #append the attack and support count
+                    related_attack_info.append([related_move, related_territory, related_support_count])
+                    related_support_count.append(related_support_count)
+        else:
+            if "A {}".format(territory) in related_moves.values():
+                related_attack_info.append([related_moves.keys(),related_moves.values(), 0])
+        #else:
+            #print("nooo")
+        """
         #SECTION I: determine if the territory is attacked
         if len(related_moves) > 1:
             if "A {}".format(territory) in related_moves.values():
@@ -242,7 +299,16 @@ class Validate_move():
             if "S {} H".format(territory) in related_moves.values():
                 for related_move in related_moves:
                     if related_move == "S {} H".format(territory):
-                        territory_supports += 1
+                        territory_supports += 1"""
+
+
+
+
+
+
+
+
+
         #SECTION II: determine winning move/winning support
         #Determine winning move/winning support for multiple attacks
         if len(related_attack_info) > 1:
@@ -277,7 +343,7 @@ class Validate_move():
                 winning_support = related_attack_info[0][2]
         #Determine winning move for no attacks
         else:
-            winning_move = move
+            winning_move = self.moves[territory]["action"]
             winning_support = territory_supports
         #SECTION III: Determine what to return
         #Return winning move (if it's run in support validity) or support count (if it's run in attack validity)
