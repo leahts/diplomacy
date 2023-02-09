@@ -62,11 +62,12 @@ for each_move in moves:
 print("attack on Kie from berlin is not showing")
 validating_moves = Validate_move(filtered_moves, node_dict, unit_dict)
 for territory in territories_parsed:
+    print(territory[0])
     det_successful_move = validating_moves.successful_move(territory[0])
     if det_successful_move == "S" or det_successful_move == "H":
-        print(territory[0], det_successful_move)
+        print("outcome is", territory[0], det_successful_move)
     elif det_successful_move != None:
-        print(det_successful_move)
+        print("outcome for {} is".format(territory[0]), det_successful_move)
     #if det_successful_move != None:
         #print(det_successful_move)
     #successful_moves.append(det_successful_move)
