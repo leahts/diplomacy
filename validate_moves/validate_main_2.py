@@ -16,8 +16,9 @@ territories_raw = open("data/map_data.csv", "r")
 territories_parsed = parse_file.parse_file(territories_raw)
 starting_units_parsed = parse_file.parse_file(starting_units_raw)
 image_file = "data/map_w_dots.png"
-moves_file = open("data/starting_moves_trial_1.csv", "r")
+moves_file = open("data/starting_moves_trial_0.csv", "r")
 moves_parsed = parse_moves(moves_file)
+print(moves_parsed)
 filtered_moves = []
 successful_moves = []
 node_dict = {}
@@ -59,15 +60,17 @@ for each_move in moves:
     if filtered_move != None:
         filtered_moves[each_move] = moves[each_move]
 
-print("attack on Kie from berlin is not showing")
+#print("attack on Kie from berlin is not showing")
 validating_moves = Validate_move(filtered_moves, node_dict, unit_dict)
 for territory in territories_parsed:
-    print(territory[0])
+    #print(territory[0])
     det_successful_move = validating_moves.successful_move(territory[0])
     if det_successful_move == "S" or det_successful_move == "H":
         print("outcome is", territory[0], det_successful_move)
     elif det_successful_move != None:
         print("outcome for {} is".format(territory[0]), det_successful_move)
+    #else:
+       # print("There is no outcome for {}".format(territory[0]))
     #if det_successful_move != None:
         #print(det_successful_move)
     #successful_moves.append(det_successful_move)
