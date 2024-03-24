@@ -6,8 +6,8 @@ Created on Wed Nov 23 19:55:17 2022
 @author: katherinesweeney
 """
 # Imports
-#import networkx as nx
-#import matplotlib.pyplot as plt
+import networkx as nx
+import matplotlib.pyplot as plt
 import visualizing_graph as visualizing_graph
 
 
