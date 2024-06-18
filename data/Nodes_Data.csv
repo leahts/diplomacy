@@ -1,0 +1,78 @@
+Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?
+Nwg,Norwegian Sea,Sea,Nap Cly Edi Nth Nwy Bar,Neutral,FALSE,FALSE
+Nao,North Atlantic Ocean,Sea,Iri Lvp Cly Nwg,Neutral,FALSE,FALSE
+Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE
+Edi,Edinburgh,Coast,Cly Lvp Nth Nwg Yor,Eng,TRUE,Eng
+Lvp,Liverpool,Coast,Nap Cly Edi Yor Wal Iri,Eng,TRUE,Eng
+Yor,Yorkshire,Coast,Edi Lon Lvp Nth Wal,Eng,FALSE,FALSE
+Wal,Wales,Coast,Eng Iri Lon Lvp Yor,Eng,FALSE,FALSE
+Lon,London,Coast,Eng Nth Wal Yor,Eng,TRUE,Eng
+Nth,North Sea,Sea,Nwg Edi Yor Lon Eng Bel Hol Hel Den Skg Nwy,Neutral,FALSE,FALSE
+Bar,Barents Sea,Sea,Nwg Nwy Stp,Neutral,FALSE,FALSE
+Nwy,Norway,Coast,Bar Fin Nth Nwg Skg Stp Swe,Neutral,FALSE,FALSE
+Ska,Skagerrak,Sea,Den Nth Nwy Swe,Neutral,FALSE,FALSE
+Iri,Irish Sea,Sea,Eng Mao Nap Lvp Wal,Neutral,FALSE,FALSE
+Eng,English Channel,Sea,Bel Bre Iri Lon Mao Nth Pic Wal,Neutral,FALSE,FALSE
+Fin,Finland,Coast,Bot Nwy Stp Swe,Neutral,FALSE,FALSE
+Bot,Gulf of Bothnia,Sea,Bal Fin Lvn Stp Swe,Neutral,FALSE,FALSE
+Swe,Sweden,Coast,Bal Bot Den Fin Nwy Skg,Neutral,TRUE,FALSE
+Den,Denmark,Coast,Bal Hel Kie Nth Skg Swe,Neutral,TRUE,FALSE
+Bal,Baltic Sea,Sea,Ber Bot Den Kie Lvn Pru Swe,Neutral,FALSE,FALSE
+Hel,Helgoland,Sea,Den Nth Hol Kie,Neutral,FALSE,FALSE
+Hol,Holland,Coast,Hel Nth Bel Ruh Kie,Neutral,TRUE,FALSE
+Bel,Belgium,Coast,Nth Eng Pic Bur Ruh Hol,Neutral,TRUE,FALSE
+Ruh,Ruhr,Land,Hol Bel Bur Mun Kie,Ger,FALSE,FALSE
+Kie,Kiel,Coast,Ruh Hol Hel Den Bal Ber Mun,Ger,TRUE,Ger
+Ber,Berlin,Coast,Bal Pru Sil Mun Kie,Ger,TRUE,Ger
+Sil,Silesia,Land,War Gal Boh Mun Ber Pru,Ger,FALSE,FALSE
+Mun,Munich,Land,Ruh Kie Ber Sil Boh Tyr Bur,Ger,TRUE,Ger
+Pru,Prussia,Coast,Bal Lvn War Sil Ber,Ger,FALSE,FALSE
+Stp,St. Petersburg,Coast,Bar Bot Fin Lvn Mos Nwy,Rus,TRUE,Rus
+Lvn,Livonia,Coast,Stp Bot Bal Pru War Mos,Rus,FALSE,FALSE
+Mos,Moscow,Land,Stp Lvn War Ukr Sev,Rus,TRUE,Rus
+War,Warsaw,Land,Lvn Mos Ukr Gal Sil Pru,Rus,TRUE,Rus
+Ukr,Ukraine,Land,Mos Sev Rum Gal War,Rus,FALSE,FALSE
+Sev,Sevastopol,Coast,Mos Ukr Run Arm,Rus,TRUE,Rus
+Pic,Picardy,Coast,Eng Bel Bur Par Bre,Fra,FALSE,FALSE
+Bre,Brest,Coast,Eng Pic Par Gas Mao,Fra,TRUE,Fra
+Par,Paris,Land,Bre Pic Bur Gas,Fra,TRUE,Fra
+Bur,Burgundy,Land,Bel Ruh Mun Mar Gas Par Pic,Fra,FALSE,FALSE
+Gas,Gascony,Coast,Bre Par Bur Mar Spa-NC Mao,Fra,FALSE,FALSE
+Mar,Marseilles,Coast,Gas Bur Pie Lyo Spa-SC,Fra,TRUE,Fra
+Mao,Mid-Atlantic Ocean,Sea,Iri Eng Bre Gas Spa-NC Por Wes Naf,Neutral,FALSE,FALSE
+Spa-NC,Spain (North Coast),Coast,Gas Mao Por Spa-SC,Neutral,TRUE,FALSE
+Spa-SC,Spain (South Coast),Coast,Por Wes Lyo Mar Spa-NC,Neutral,TRUE,FALSE
+Por,Portugal,Coast,Mao Spa-NC Spa-SC,Neutral,TRUE,FALSE
+Naf,North Africa,Coast,Mao Wes Tun,Neutral,FALSE,FALSE
+Tun,Tunisia,Coast,Naf Wes Tys Ion,Neutral,TRUE,FALSE
+Wes,Western Mediterranean,Sea,Mao Spa-SC Lyo Tys Tun Naf,Neutral,FALSE,FALSE
+Lyo,Gulf of Lyon,Sea,Spa-SC Mar Pie Tus Tys Wes,Neutral,FALSE,FALSE
+Tys,Tyrrhenian Sea,Sea,Wes Lyo Tus Rom Nap Ion Tun,Neutral,FALSE,FALSE
+Gal,Galicia,Land,War Ukr Run Bud Vie Boh Sil,Aus,FALSE,FALSE
+Boh,Bohemia,Land,Mun Sil Gal Vie Tyr,Aus,FALSE,FALSE
+Tyr,Tyrolia,Land,Mun Boh Vie Tri Ven Pie,Aus,FALSE,FALSE
+Vie,Vienna,Land,Boh Gal Bud Trie Tyr,Aus,TRUE,Aus
+Tri,Trieste,Coast,Tyr Vie Bud Ser Alb Adr Vie,Aus,TRUE,Aus
+Bud,Budapest,Land,Tri Vie Gal Run Ser,Aus,TRUE,Aus
+Pie,Piedmont,Coast,Mar Tyr Ven Tus Lyo,Ita,FALSE,FALSE
+Tus,Tuscany,Coast,Pie Ven Rom Tys Lyo,Ita,FALSE,FALSE
+Ven,Venice,Coast,Tyr Tri Adr Apu Rom Tus Pie,Ita,TRUE,Ita
+Rom,Rome,Coast,Tus Ven Apu Nap Tys,Ita,TRUE,Ita
+Apu,Apulia,Coast,Adr Ion Nap Rom Ven,Ita,FALSE,FALSE
+Nap,Naples,Coast,Rom Apu Ion Tys,Ita,TRUE,Ita
+Adr,Adriatic Sea,Sea,Tri Alb Ion Apu Ven,Neutral,FALSE,FALSE
+Ion,Ionian Sea,Sea,Tun Tys Nap Apu Adr Alb Gre Aeg Eas,Neutral,FALSE,FALSE
+Alb,Albania,Coast,Tri Ser Gre Ion Adr,Neutral,FALSE,FALSE
+Ser,Serbia,Land,Tri Bud Rum Bul-EC Bul-SC Gre Alb,Neutral,TRUE,FALSE
+Rum,Rumania,Coast,Bud Gal Ukr Sev Bla Bul-EC Ser,Neutral,TRUE,FALSE
+Bul-EC,Bulgaria (East Coast),Coast,Rum Bla Con Ser Bul-SC,Neutral,TRUE,FALSE
+Bul-SC,Bulgaria (South Coast),Coast,Ser Aeg Con Gre Bul-EC,Neutral,TRUE,FALSE
+Gre,Greece,Coast,Alb Ser Bul-SC Aeg Ion,Neutral,TRUE,FALSE
+Bla,Black Sea,Sea,Bul-EC Rum Arm Ank Con Sev,Neutral,FALSE,FALSE
+Aeg,Aegean Sea,Sea,Gre Bul-SC Con Smy Eas Ion,Neutral,FALSE,FALSE
+Eas,Eastern Mediterranean,Sea,Ion Aeg Smy Syr,Neutral,FALSE,FALSE
+Con,Constantinople,Coast,Bul-SC Bul-EC Bla Ank Smy Aeg,Tur,TRUE,Tur
+Ank,Ankora,Coast,Bla Arm Smy Con,Tur,TRUE,Tur
+Arm,Armenia,Coast,Sev Bla Ank Smy Syr,Tur,FALSE,FALSE
+Smy,Smyrna,Coast,Con Ank Arm Syr Eas Aeg,Tur,TRUE,Tur
+Syr,Syria,Coast,Eas Smy Arm,Tur,FALSE,FALSE
