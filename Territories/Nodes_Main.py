@@ -10,4 +10,5 @@ import Nodes_Functions as funcs
 from Nodes_Class import Node
 
 territories = funcs.run_create_nodes("data/Nodes_Data.csv")
+territories_graph = funcs.run_create_graph(territories)
 

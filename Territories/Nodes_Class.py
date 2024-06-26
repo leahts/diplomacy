@@ -20,6 +20,10 @@ class Node ():
         self.dot = dot_status
         self.hsc = hsc_status
 
+    def parse_nbrs (self):
+        self.nbrs = self.nbrs.split(" ")
+        return(self.nbrs)
+
     def print_node_info (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))
