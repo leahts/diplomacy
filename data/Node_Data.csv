@@ -1,0 +1,78 @@
+Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?,Coordinates
+Nwg,Norwegian Sea,Sea,Nap Cly Edi Nth Nwy Bar,Neutral,FALSE,FALSE,235 50
+Nao,North Atlantic Ocean,Sea,Iri Lvp Cly Nwg,Neutral,FALSE,FALSE,65 100
+Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE,160 120
+Edi,Edinburgh,Coast,Cly Lvp Nth Nwg Yor,Eng,TRUE,Eng,173 115
+Lvp,Liverpool,Coast,Nap Cly Edi Yor Wal Iri,Eng,TRUE,Eng,170 160
+Yor,Yorkshire,Coast,Edi Lon Lvp Nth Wal,Eng,FALSE,FALSE,180 160
+Wal,Wales,Coast,Eng Iri Lon Lvp Yor,Eng,FALSE,FALSE,155 180
+Lon,London,Coast,Eng Nth Wal Yor,Eng,TRUE,Eng,176 177
+Nth,North Sea,Sea,Nwg Edi Yor Lon Eng Bel Hol Hel Den Skg Nwy,Neutral,FALSE,FALSE,210 145
+Bar,Barents Sea,Sea,Nwg Nwy Stp,Neutral,FALSE,FALSE,410 25
+Nwy,Norway,Coast,Bar Fin Nth Nwg Skg Stp Swe,Neutral,FALSE,FALSE,270 100
+Ska,Skagerrak,Sea,Den Nth Nwy Swe,Neutral,FALSE,FALSE,275 130
+Iri,Irish Sea,Sea,Eng Mao Nap Lvp Wal,Neutral,FALSE,FALSE,100 183
+Eng,English Channel,Sea,Bel Bre Iri Lon Mao Nth Pic Wal,Neutral,FALSE,FALSE,147 196
+Fin,Finland,Coast,Bot Nwy Stp Swe,Neutral,FALSE,FALSE,365 75
+Bot,Gulf of Bothnia,Sea,Bal Fin Lvn Stp Swe,Neutral,FALSE,FALSE,340 119
+Swe,Sweden,Coast,Bal Bot Den Fin Nwy Skg,Neutral,TRUE,FALSE,305 135
+Den,Denmark,Coast,Bal Hel Kie Nth Skg Swe,Neutral,TRUE,FALSE,264 163
+Bal,Baltic Sea,Sea,Ber Bot Den Kie Lvn Pru Swe,Neutral,FALSE,FALSE,322 158
+Hel,Helgoland,Sea,Den Nth Hol Kie,Neutral,FALSE,FALSE,235 175
+Hol,Holland,Coast,Hel Nth Bel Ruh Kie,Neutral,TRUE,FALSE,228 186
+Bel,Belgium,Coast,Nth Eng Pic Bur Ruh Hol,Neutral,TRUE,FALSE,200 196
+Ruh,Ruhr,Land,Hol Bel Bur Mun Kie,Ger,FALSE,FALSE,230 215
+Kie,Kiel,Coast,Ruh Hol Hel Den Bal Ber Mun,Ger,TRUE,Ger,254 184
+Ber,Berlin,Coast,Bal Pru Sil Mun Kie,Ger,TRUE,Ger,287 199
+Sil,Silesia,Land,War Gal Boh Mun Ber Pru,Ger,FALSE,FALSE,304 217
+Mun,Munich,Land,Ruh Kie Ber Sil Boh Tyr Bur,Ger,TRUE,Ger,255 243
+Pru,Prussia,Coast,Bal Lvn War Sil Ber,Ger,FALSE,FALSE,325 200
+Stp,St. Petersburg,Coast,Bar Bot Fin Lvn Mos Nwy,Rus,TRUE,Rus,430 120
+Lvn,Livonia,Coast,Stp Bot Bal Pru War Mos,Rus,FALSE,FALSE,375 160
+Mos,Moscow,Land,Stp Lvn War Ukr Sev,Rus,TRUE,Rus,453 176
+War,Warsaw,Land,Lvn Mos Ukr Gal Sil Pru,Rus,TRUE,Rus,347 213
+Ukr,Ukraine,Land,Mos Sev Rum Gal War,Rus,FALSE,FALSE,418 230
+Sev,Sevastopol,Coast,Mos Ukr Run Arm,Rus,TRUE,Rus,473 241
+Pic,Picardy,Coast,Eng Bel Bur Par Bre,Fra,FALSE,FALSE,190 213
+Bre,Brest,Coast,Eng Pic Par Gas Mao,Fra,TRUE,Fra,150 236
+Par,Paris,Land,Bre Pic Bur Gas,Fra,TRUE,Fra,174 243
+Bur,Burgundy,Land,Bel Ruh Mun Mar Gas Par Pic,Fra,FALSE,FALSE,205 243
+Gas,Gascony,Coast,Bre Par Bur Mar Spa-NC Mao,Fra,FALSE,FALSE,145 277
+Mar,Marseilles,Coast,Gas Bur Pie Lyo Spa-SC,Fra,TRUE,Fra,191 286
+Mao,Mid-Atlantic Ocean,Sea,Iri Eng Bre Gas Spa-NC Por Wes Naf,Neutral,FALSE,FALSE,30 270
+Spa-NC,Spain (North Coast),Coast,Gas Mao Por Spa-SC,Neutral,TRUE,FALSE,85 270
+Spa-SC,Spain (South Coast),Coast,Por Wes Lyo Mar Spa-NC,Neutral,TRUE,FALSE,92 337
+Por,Portugal,Coast,Mao Spa-NC Spa-SC,Neutral,TRUE,FALSE,50 317
+Naf,North Africa,Coast,Mao Wes Tun,Neutral,FALSE,FALSE,60 380
+Tun,Tunisia,Coast,Naf Wes Tys Ion,Neutral,TRUE,FALSE,210 385
+Wes,Western Mediterranean,Sea,Mao Spa-SC Lyo Tys Tun Naf,Neutral,FALSE,FALSE,159 349
+Lyo,Gulf of Lyon,Sea,Spa-SC Mar Pie Tus Tys Wes,Neutral,FALSE,FALSE,170 315
+Tys,Tyrrhenian Sea,Sea,Wes Lyo Tus Rom Nap Ion Tun,Neutral,FALSE,FALSE,250 350
+Gal,Galicia,Land,War Ukr Run Bud Vie Boh Sil,Aus,FALSE,FALSE,365 235
+Boh,Bohemia,Land,Mun Sil Gal Vie Tyr,Aus,FALSE,FALSE,285 235
+Tyr,Tyrolia,Land,Mun Boh Vie Tri Ven Pie,Aus,FALSE,FALSE,267 257
+Vie,Vienna,Land,Boh Gal Bud Trie Tyr,Aus,TRUE,Aus,305 251
+Tri,Trieste,Coast,Tyr Vie Bud Ser Alb Adr Vie,Aus,TRUE,Aus,300 277
+Bud,Budapest,Land,Tri Vie Gal Run Ser,Aus,TRUE,Aus,345 275
+Pie,Piedmont,Coast,Mar Tyr Ven Tus Lyo,Ita,FALSE,FALSE,227 285
+Tus,Tuscany,Coast,Pie Ven Rom Tys Lyo,Ita,FALSE,FALSE,254 308
+Ven,Venice,Coast,Tyr Tri Adr Apu Rom Tus Pie,Ita,TRUE,Ita,261 291
+Rom,Rome,Coast,Tus Ven Apu Nap Tys,Ita,TRUE,Ita,270 325
+Apu,Apulia,Coast,Adr Ion Nap Rom Ven,Ita,FALSE,FALSE,301 344
+Nap,Naples,Coast,Rom Apu Ion Tys,Ita,TRUE,Ita,294 358
+Adr,Adriatic Sea,Sea,Tri Alb Ion Apu Ven,Neutral,FALSE,FALSE,302 323
+Ion,Ionian Sea,Sea,Tun Tys Nap Apu Adr Alb Gre Aeg Eas,Neutral,FALSE,FALSE,315 375
+Alb,Albania,Coast,Tri Ser Gre Ion Adr,Neutral,FALSE,FALSE,343 342
+Ser,Serbia,Land,Tri Bud Rum Bul-EC Bul-SC Gre Alb,Neutral,TRUE,FALSE,354 316
+Rum,Rumania,Coast,Bud Gal Ukr Sev Bla Bul-EC Ser,Neutral,TRUE,FALSE,408 270
+Bul-EC,Bulgaria (East Coast),Coast,Rum Bla Con Ser Bul-SC,Neutral,TRUE,FALSE,405 302
+Bul-SC,Bulgaria (South Coast),Coast,Ser Aeg Con Gre Bul-EC,Neutral,TRUE,FALSE,397 328
+Gre,Greece,Coast,Alb Ser Bul-SC Aeg Ion,Neutral,TRUE,FALSE,363 364
+Bla,Black Sea,Sea,Bul-EC Rum Arm Ank Con Sev,Neutral,FALSE,FALSE,450 300
+Aeg,Aegean Sea,Sea,Gre Bul-SC Con Smy Eas Ion,Neutral,FALSE,FALSE,394 358
+Eas,Eastern Mediterranean,Sea,Ion Aeg Smy Syr,Neutral,FALSE,FALSE,464 382
+Con,Constantinople,Coast,Bul-SC Bul-EC Bla Ank Smy Aeg,Tur,TRUE,Tur,423 343
+Ank,Ankora,Coast,Bla Arm Smy Con,Tur,TRUE,Tur,487 310
+Arm,Armenia,Coast,Sev Bla Ank Smy Syr,Tur,FALSE,FALSE,565 340
+Smy,Smyrna,Coast,Con Ank Arm Syr Eas Aeg,Tur,TRUE,Tur,445 363
+Syr,Syria,Coast,Eas Smy Arm,Tur,FALSE,FALSE,529 365

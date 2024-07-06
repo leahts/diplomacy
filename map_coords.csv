@@ -1,0 +1,78 @@
+﻿Territory Abbreviation,Territory Name,"Territory Type (Land, Sea, or Coast)",Dot (True => has dot),Map Coordinates,Adjacent Territories
+Nwg,Norwegian Sea,Sea,FALSE,235 50,Nap Cly Edi Nth Nwy Bar
+Nao,North Atlantic Ocean,Sea,FALSE,65 100,Iri Lvp Cly Nwg
+Cly,Clyde,Coast,FALSE,160 120,Nap Nwg Lvp Edi
+Edi,Edinburgh,Coast,TRUE,173 115,Cly Lvp Nth Nwg Yor
+Lvp,Liverpool,Coast,TRUE,170 160,Nap Cly Edi Yor Wal Iri
+Yor,Yorkshire,Coast,FALSE,180 160,Edi Lon Lvp Nth Wal
+Wal,Wales,Coast,FALSE,155 180,Eng Iri Lon Lvp Yor
+Lon,London,Coast,TRUE,176 177,Eng Nth Wal Yor
+Nth,North Sea,Sea,FALSE,210 145,Nwg Edi Yor Lon Eng Bel Hol Hel Den Skg Nwy
+Bar,Barents Sea,Sea,FALSE,410 25,Nwg Nwy Stp
+Nwy,Norway,Coast,FALSE,270 100,Bar Fin Nth Nwg Skg Stp Swe
+Ska,Skagerrak,Sea,FALSE,275 130,Den Nth Nwy Swe
+Iri,Irish Sea,Sea,FALSE,100 183,Eng Mao Nap Lvp Wal
+Eng,English Channel,Sea,FALSE,147 196,Bel Bre Iri Lon Mao Nth Pic Wal
+Stp,St. Petersburg,Coast,TRUE,430 120,Bar Bot Fin Lvn Mos Nwy
+Fin,Finland,Coast,FALSE,365 75,Bot Nwy Stp Swe
+Bot,Gulf of Bothnia,Sea,FALSE,340 119,Bal Fin Lvn Stp Swe
+Swe,Sweden,Coast,TRUE,305 135,Bal Bot Den Fin Nwy Skg
+Den,Denmark,Coast,TRUE,264 163,Bal Hel Kie Nth Skg Swe
+Bal,Baltic Sea,Sea,FALSE,322 158,Ber Bot Den Kie Lvn Pru Swe
+Hel,Helgoland,Sea,FALSE,235 175,Den Nth Hol Kie
+Hol,Holland,Coast,TRUE,228 186,Hel Nth Bel Ruh Kie
+Bel,Belgium,Coast,TRUE,200 196,Nth Eng Pic Bur Ruh Hol
+Ruh,Ruhr,Land,FALSE,230 215,Hol Bel Bur Mun Kie
+Kie,Kiel,Coast,TRUE,254 184,Ruh Hol Hel Den Bal Ber Mun
+Ber,Berlin,Coast,TRUE,287 199,Bal Pru Sil Mun Kie
+Sil,Silesia,Land,FALSE,304 217,War Gal Boh Mun Ber Pru
+Mun,Munich,Land,TRUE,255 243,Ruh Kie Ber Sil Boh Tyr Bur
+Pru,Prussia,Coast,FALSE,325 200,Bal Lvn War Sil Ber
+Lvn,Livonia,Coast,FALSE,375 160,Stp Bot Bal Pru War Mos
+Mos,Moscow,Land,TRUE,453 176,Stp Lvn War Ukr Sev
+War,Warsaw,Land,TRUE,347 213,Lvn Mos Ukr Gal Sil Pru
+Ukr,Ukraine,Land,FALSE,418 230,Mos Sev Rum Gal War
+Sev,Sevastopol,Coast,TRUE,473 241,Mos Ukr Run Arm
+Pic,Picardy,Coast,FALSE,190 213,Eng Bel Bur Par Bre
+Bre,Brest,Coast,TRUE,150 236,Eng Pic Par Gas Mao
+Par,Paris,Land,TRUE,174 243,Bre Pic Bur Gas
+Bur,Burgundy,Land,FALSE,205 243,Bel Ruh Mun Mar Gas Par Pic
+Gas,Gascony,Coast,FALSE,145 277,Bre Par Bur Mar Spa-NC Mao
+Mar,Marseilles,Coast,TRUE,191 286,Gas Bur Pie Lyo Spa-SC
+Mao,Mid-Atlantic Ocean,Sea,FALSE,30 270,Iri Eng Bre Gas Spa-NC Por Wes Naf
+Spa-NC,Spain (North Coast),Coast,TRUE,85 270,Gas Mao Por Spa-SC
+Spa-SC,Spain (South Coast),Coast,TRUE,92 337,Por Wes Lyo Mar Spa-NC
+Por,Portugal,Coast,TRUE,50 317,Mao Spa-NC Spa-SC
+Naf,North Africa,Coast,FALSE,60 380,Mao Wes Tun
+Tun,Tunisia,Coast,TRUE,210 385,Naf Wes Tys Ion
+Wes,Western Mediterranean,Sea,FALSE,159 349,Mao Spa-SC Lyo Tys Tun Naf
+Lyo,Gulf of Lyon,Sea,FALSE,170 315,Spa-SC Mar Pie Tus Tys Wes
+Tys,Tyrrhenian Sea,Sea,FALSE,250 350,Wes Lyo Tus Rom Nap Ion Tun
+Gal,Galicia,Land,FALSE,365 235,War Ukr Run Bud Vie Boh Sil
+Boh,Bohemia,Land,FALSE,285 235,Mun Sil Gal Vie Tyr
+Tyr,Tyrolia,Land,FALSE,267 257,Mun Boh Vie Tri Ven Pie
+Vie,Vienna,Land,TRUE,305 251,Boh Gal Bud Trie Tyr
+Tri,Trieste,Coast,TRUE,300 277,Tyr Vie Bud Ser Alb Adr Vie
+Bud,Budapest,Land,TRUE,345 275,Tri Vie Gal Run Ser
+Pie,Piedmont,Coast,FALSE,227 285,Mar Tyr Ven Tus Lyo
+Tus,Tuscany,Coast,FALSE,254 308,Pie Ven Rom Tys Lyo
+Ven,Venice,Coast,TRUE,261 291,Tyr Tri Adr Apu Rom Tus Pie
+Rom,Rome,Coast,TRUE,270 325,Tus Ven Apu Nap Tys
+Apu,Apulia,Coast,FALSE,301 344,Adr Ion Nap Rom Ven
+Nap,Naples,Coast,TRUE,294 358,Rom Apu Ion Tys
+Adr,Adriatic Sea,Sea,FALSE,302 323,Tri Alb Ion Apu Ven
+Ion,Ionian Sea,Sea,FALSE,315 375,Tun Tys Nap Apu Adr Alb Gre Aeg Eas
+Alb,Albania,Coast,FALSE,343 342,Tri Ser Gre Ion Adr
+Ser,Serbia,Land,TRUE,354 316,Tri Bud Rum Bul-EC Bul-SC Gre Alb
+Rum,Rumania,Coast,TRUE,408 270,Bud Gal Ukr Sev Bla Bul-EC Ser
+Bul-NC,Bulgaria (North Coast),Coast,TRUE,405 302,Rum Bla Con Ser Bul-SC
+Bul-SC,Bulgaria (South Coast),Coast,TRUE,397 328,Ser Aeg Con Gre Bul-EC
+Gre,Greece,Coast,TRUE,363 364,Alb Ser Bul-SC Aeg Ion
+Bla,Black Sea,Sea,FALSE,450 300,Bul-EC Rum Arm Ank Con Sev
+Aeg,Aegean Sea,Sea,FALSE,394 358,Gre Bul-SC Con Smy Eas Ion
+Eas,Eastern Mediterranean,Sea,FALSE,464 382,Ion Aeg Smy Syr
+Con,Constantinople,Coast,TRUE,423 343,Bul-SC Bul-EC Bla Ank Smy Aeg
+Ank,Ankara,Coast,TRUE,487 310,Bla Arm Smy Con
+Arm,Armenia,Coast,FALSE,565 340,Sev Bla Ank Smy Syr
+Smy,Smyrna,Coast,TRUE,445 363,Con Ank Arm Syr Eas Aeg
+Syr,Syria,Coast,FALSE,529 365,Eas Smy Arm
