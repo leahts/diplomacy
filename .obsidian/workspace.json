@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+                "file": "NOTES/TGDP Steps.md",
                 "mode": "source",
                 "source": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+                "file": "NOTES/TGDP Steps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+                "file": "NOTES/TGDP Steps.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md"
+                "file": "NOTES/TGDP Steps.md"
               }
             }
           }
@@ -197,8 +197,8 @@
   },
   "active": "38cb44820dae70b7",
   "lastOpenFiles": [
-    "NOTES/TGDP Steps.md",
     "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+    "NOTES/TGDP Steps.md",
     "NOTES/Untitled.md",
     "QUESTIONS",
     "NOTES/Testing.md",
