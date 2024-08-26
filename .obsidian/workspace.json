@@ -42,9 +42,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6cbca2769a558654",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NOTES/Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "38cb44820dae70b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NOTES/Testing.md",
+                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NOTES/Testing.md",
+                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NOTES/Testing.md"
+                "file": "QUESTIONS/Legal Moves by Unit Type and Graph.md"
               }
             }
           }
@@ -171,9 +195,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "03abc2aa3ff11966",
+  "active": "38cb44820dae70b7",
   "lastOpenFiles": [
     "NOTES/Untitled.md",
+    "QUESTIONS/Legal Moves by Unit Type and Graph.md",
+    "QUESTIONS",
+    "NOTES/TGDP Steps.md",
     "NOTES/Testing.md",
     "README.md",
     "NOTES"
